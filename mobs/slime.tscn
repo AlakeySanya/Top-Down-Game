@@ -153,7 +153,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fgmkj"]
-radius = 250.032
+radius = 260.094
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2rv7b"]
 
@@ -163,11 +163,12 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_3l7ex"]
 radius = 14.1421
 
-[node name="slime" type="CharacterBody2D"]
+[node name="slime" type="CharacterBody2D" groups=["slime"]]
 script = ExtResource("1_xpv4n")
 itnvRes = ExtResource("2_aqdvn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_1p4ea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -175,41 +176,48 @@ texture_filter = 1
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_2k80n")
 animation = &"idle"
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tc4m1")
 }
 
-[node name="Chase" type="Area2D" parent="."]
+[node name="Chase" type="Area2D" parent="." groups=["slime"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chase"]
+[node name="chase_coll" type="CollisionShape2D" parent="Chase"]
 shape = SubResource("CircleShape2D_fgmkj")
 
-[node name="Hurt_Box" type="Area2D" parent="."]
+[node name="Hurt_Box" type="Area2D" parent="." groups=["slime"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
+[node name="Hurt_Box_coll" type="CollisionShape2D" parent="Hurt_Box"]
+visible = false
 shape = SubResource("CircleShape2D_2rv7b")
 
 [node name="cooldown" type="Timer" parent="."]
 
-[node name="Hit_box" type="Area2D" parent="." groups=["enemy"]]
+[node name="Hit_box" type="Area2D" parent="." groups=["enemy", "slime"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box"]
+[node name="Hit_box_coll" type="CollisionShape2D" parent="Hit_box"]
+visible = false
 shape = SubResource("CircleShape2D_0d81p")
 
 [node name="Drop" type="Sprite2D" parent="."]
 visible = false
 
-[node name="collect_range" type="Area2D" parent="Drop"]
+[node name="collect_range" type="Area2D" parent="Drop" groups=["slime"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Drop/collect_range"]
+[node name="collect_range_coll" type="CollisionShape2D" parent="Drop/collect_range"]
 shape = SubResource("CircleShape2D_3l7ex")
+disabled = true
+
+[node name="remember_timer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="body_entered" from="Chase" to="." method="_on_chase_body_entered"]
 [connection signal="body_exited" from="Chase" to="." method="_on_chase_body_exited"]
 [connection signal="area_entered" from="Hurt_Box" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_exited" from="Hurt_Box" to="." method="_on_hurt_box_area_exited"]
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
-[connection signal="area_entered" from="Hit_box" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="Drop/collect_range" to="." method="_on_collect_range_body_entered"]
+[connection signal="timeout" from="remember_timer" to="." method="_on_remember_timer_timeout"]

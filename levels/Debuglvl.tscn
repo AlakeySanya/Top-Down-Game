@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0ko77akhtiju"]
+[gd_scene load_steps=11 format=3 uid="uid://d0ko77akhtiju"]
 
 [ext_resource type="PackedScene" uid="uid://kt0atcisjbhw" path="res://player/player.tscn" id="1_rmjw5"]
 [ext_resource type="Texture2D" uid="uid://1ysudnixfgiy" path="res://arts/Decoration.png" id="2_k82h2"]
@@ -73,6 +73,9 @@ tile_size = Vector2i(24, 24)
 sources/0 = SubResource("TileSetAtlasSource_mg2vw")
 sources/1 = SubResource("TileSetAtlasSource_3dstg")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j61px"]
+size = Vector2(37, 95)
+
 [node name="Debuglvl" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -96,25 +99,14 @@ position = Vector2(104, -823)
 apple = ExtResource("6_b2u53")
 
 [node name="player" parent="." instance=ExtResource("1_rmjw5")]
-position = Vector2(1, -838)
-
-[node name="slime" parent="." instance=ExtResource("6_4eddt")]
-position = Vector2(320, -1003)
-
-[node name="slime2" parent="." instance=ExtResource("6_4eddt")]
-position = Vector2(-281, -1020)
-
-[node name="slime3" parent="." instance=ExtResource("6_4eddt")]
-position = Vector2(-243, -1170)
-
-[node name="slime4" parent="." instance=ExtResource("6_4eddt")]
-position = Vector2(-292, -1125)
+position = Vector2(-38, -553)
 
 [node name="slime5" parent="." instance=ExtResource("6_4eddt")]
-position = Vector2(44, -1082)
+position = Vector2(241, -591)
 
-[node name="slime6" parent="." instance=ExtResource("6_4eddt")]
-position = Vector2(288, -1069)
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(105, -578)
 
-[node name="slime7" parent="." instance=ExtResource("6_4eddt")]
-position = Vector2(-181, -1118)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_j61px")

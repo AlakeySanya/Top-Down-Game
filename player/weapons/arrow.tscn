@@ -7,7 +7,7 @@
 radius = 2.0
 height = 22.0
 
-[node name="Arrow" type="Area2D"]
+[node name="Arrow" type="Area2D" groups=["weapon"]]
 script = ExtResource("1_nub0j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
