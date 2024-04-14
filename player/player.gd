@@ -38,9 +38,11 @@ var attack_in_process = false
 var attack_anim: Node
 
 # Для инвентаря
+@onready var inventory_ui = $Inventory_UI
 @export var inventory: Inventory
-var using_inventory = false
-var can_close_inventory = true
+var using_inventory_interface = false
+var using_interface = false
+var in_interface_obj_area = false
 
 # Для Запоминания Последнего направления
 var curr_x_player_direction = "right"
@@ -53,7 +55,8 @@ enum {
 	MOVE,
 	ATTACK,
 	SLIDE,
-	USE
+	USE,
+	USE_INTERFACE
 }
 
 # Привязка всех сигналов 
@@ -66,7 +69,38 @@ func _ready():
 
 #####\\\ Главная функуция всех процессов ///#####
 func _physics_process(_delta):
-	
+
+	# equip items
+	if Input.is_action_just_pressed("1"):
+		equipt_weapon = "bow"
+		change_damage(20)
+	if Input.is_action_just_pressed("2"):
+		equipt_weapon = "stick"
+		change_damage(10)
+
+	## USING INTERFACE ##
+
+	# INTERFACE USING
+	if Input.is_action_just_pressed("use_interface"):
+		if in_interface_obj_area:
+			if not using_interface:
+				state = USE_INTERFACE
+				using_interface = true
+			else:
+				state = MOVE
+				using_interface = false
+			Global.emit_signal("player_use_interface")
+	# Inventory using
+	if Input.is_action_just_pressed("use_inventory"):
+		if not using_inventory_interface:
+			using_inventory_interface = true
+			state = USE_INTERFACE
+			inventory_ui.open()
+		else:
+			using_inventory_interface = false
+			state = MOVE
+			inventory_ui.close()
+
 	# Для отслеживания позиции мыши
 	mouse_pos = get_global_mouse_position()
 	var mouse_direction = mouse_pos - self.position
@@ -82,7 +116,7 @@ func _physics_process(_delta):
 	
 	$Marker2D.look_at(mouse_pos)
 	
-	# For state Mashine
+	## For state Mashine ##
 	match state:
 		MOVE:
 			move_state()
@@ -92,15 +126,17 @@ func _physics_process(_delta):
 			slide_state()
 		USE:
 			use_state()
+		USE_INTERFACE:
+			use_interface_state()
 	move_and_slide()
 
 ################################### Функции ##############################################
 
 # STATES 
-func move_state():
+func move_state(): # main state
 
 	var direction = Vector2()
-	if not using_inventory:
+	if not using_interface:
 		if Input.is_action_pressed("up"):
 			direction.y -= 1
 			curr_y_player_direction = "up"
@@ -113,28 +149,6 @@ func move_state():
 		if Input.is_action_pressed("left"):
 			direction.x -= 1
 			curr_x_player_direction = "left"
-		if Input.is_action_pressed("1"):
-			equipt_weapon = "bow"
-			change_damage(20)
-		if Input.is_action_pressed("2"):
-			equipt_weapon = "stick"
-			change_damage(10)
-		if Input.is_action_pressed("use"):
-			Global.emit_signal("player_use")
-		if Input.is_action_pressed("attack"):
-			state = ATTACK
-	# For Inventory using
-	if Input.is_action_just_pressed("use_inventory"):
-		if not using_inventory:
-			velocity = Vector2()
-			using_inventory = true
-			Global.emit_signal("open_inventory")
-		elif can_close_inventory:
-			using_inventory = false
-			Global.emit_signal("close_inventory")
-		can_close_inventory = false
-	if Input.is_action_just_released("use_inventory"):
-		can_close_inventory = true
 
 	if direction != Vector2():
 		last_direction = direction
@@ -156,12 +170,12 @@ func move_state():
 	# If player dont move
 	else:
 		velocity = Vector2()
-func slide_state():
-	
-	pass
-	state = MOVE
 func use_state():
 	pass
+func slide_state():
+	pass
+func use_interface_state():
+	velocity = Vector2()
 func attack_state():
 	
 	if equipt_weapon == "stick":
@@ -249,3 +263,11 @@ func _on_bow_cooldown_timeout():
 func _on_sword_cooldown_timeout():
 	sword_cooldown = false
 	$sword_cooldown.stop()
+
+# Interface area 
+func _on_interface_use_area_entered(area):
+	if area.is_in_group("interface"):
+		in_interface_obj_area = true
+func _on_interface_use_area_exited(area):
+	if area.is_in_group("interface"):
+		in_interface_obj_area = false

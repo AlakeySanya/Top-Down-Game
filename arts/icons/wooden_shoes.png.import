@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0xx7w08p4twx"
-path="res://.godot/imported/apple-icon.png-d99f758b79477058208b5904edac765b.ctex"
+uid="uid://dq241ged7i2l7"
+path="res://.godot/imported/wooden_shoes.png-8143eda40ac5ebf620791e0c8329b5c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/apple-icon.png"
-dest_files=["res://.godot/imported/apple-icon.png-d99f758b79477058208b5904edac765b.ctex"]
+source_file="res://arts/icons/wooden_shoes.png"
+dest_files=["res://.godot/imported/wooden_shoes.png-8143eda40ac5ebf620791e0c8329b5c8.ctex"]
 
 [params]
 

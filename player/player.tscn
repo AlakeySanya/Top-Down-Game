@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://kt0atcisjbhw"]
+[gd_scene load_steps=22 format=3 uid="uid://kt0atcisjbhw"]
 
 [ext_resource type="Texture2D" uid="uid://pjfunqvt1lo1" path="res://arts/Bcubi.png" id="1_mjgj5"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_tclqq"]
-[ext_resource type="Resource" uid="uid://bhpwrge10pw2m" path="res://inventory/inventories/player_Inv.tres" id="2_63t1d"]
-[ext_resource type="PackedScene" uid="uid://cxw3rc0tiugpj" path="res://inventory/Inv_UI.tscn" id="3_xu6jl"]
+[ext_resource type="Resource" uid="uid://bhpwrge10pw2m" path="res://inventory/player_inventory/player_Inv.tres" id="2_ix30r"]
+[ext_resource type="PackedScene" uid="uid://cxw3rc0tiugpj" path="res://inventory/player_inventory/player_Inv_UI.tscn" id="3_p3vaq"]
 [ext_resource type="Texture2D" uid="uid://bnimguvv67alx" path="res://arts/attak-sheet.png" id="4_mhw7e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xerhp"]
@@ -97,6 +97,32 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_q0dda"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player_Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["idle_side"]
+}
+
 [sub_resource type="Animation" id="Animation_sifc5"]
 length = 0.3076
 tracks/0/type = "value"
@@ -148,32 +174,6 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_q0dda"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player_Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player_Sprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["idle_side"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7noqn"]
 _data = {
 "RESET": SubResource("Animation_pim8w"),
@@ -184,9 +184,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsvft"]
 size = Vector2(61.0001, 61)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2knlr"]
+radius = 46.0435
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_tclqq")
-inventory = ExtResource("2_63t1d")
+inventory = ExtResource("2_ix30r")
 
 [node name="PhysicBody" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
@@ -197,12 +200,12 @@ zoom = Vector2(2.4, 2.4)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="Inventory_UI" parent="." instance=ExtResource("3_xu6jl")]
+[node name="Inventory_UI" parent="." instance=ExtResource("3_p3vaq")]
 visible = false
-offset_left = -41.0
-offset_top = -97.0
-offset_right = -41.0
-offset_bottom = -97.0
+offset_left = -94.0
+offset_top = -91.0
+offset_right = -94.0
+offset_bottom = -91.0
 
 [node name="Hit_Box" type="Area2D" parent="." groups=["player"]]
 
@@ -251,5 +254,12 @@ wait_time = 0.4
 
 [node name="Timer4" type="Timer" parent="."]
 
+[node name="interface_use" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interface_use"]
+shape = SubResource("CircleShape2D_2knlr")
+
 [connection signal="timeout" from="bow_cooldown" to="." method="_on_bow_cooldown_timeout"]
 [connection signal="timeout" from="sword_cooldown" to="." method="_on_sword_cooldown_timeout"]
+[connection signal="area_entered" from="interface_use" to="." method="_on_interface_use_area_entered"]
+[connection signal="area_exited" from="interface_use" to="." method="_on_interface_use_area_exited"]

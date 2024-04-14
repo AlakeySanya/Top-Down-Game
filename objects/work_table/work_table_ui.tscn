@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnbbu11ewf3p5"]
+
+[ext_resource type="Texture2D" uid="uid://dus8etornw84h" path="res://arts/inventory-background.png" id="1_2pmo6"]
+[ext_resource type="Script" path="res://objects/work_table/work_table_ui.gd" id="1_my6og"]
+
+[node name="work_table_UI" type="Control"]
+layout_mode = 3
+script = ExtResource("1_my6og")
+
+[node name="background" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 82.0
+offset_bottom = 62.0
+texture = ExtResource("1_2pmo6")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background"]
+layout_mode = 0
+offset_right = 82.0
+offset_bottom = 62.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="background/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "create"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="background/HBoxContainer"]
+layout_mode = 2

@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://edklq5uq4w0x"]
+
+[ext_resource type="Script" path="res://objects/work_table/work_table.gd" id="1_hxgym"]
+[ext_resource type="Texture2D" uid="uid://b86m71chyngfa" path="res://arts/inventory-slot.png" id="2_xmw28"]
+[ext_resource type="Texture2D" uid="uid://dus8etornw84h" path="res://arts/inventory-background.png" id="3_8amxj"]
+[ext_resource type="PackedScene" uid="uid://bnbbu11ewf3p5" path="res://objects/work_table/work_table_ui.tscn" id="4_pgo4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbafs"]
+size = Vector2(94, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ej7id"]
+radius = 22.0
+height = 114.0
+
+[node name="work_table" type="StaticBody2D"]
+script = ExtResource("1_hxgym")
+
+[node name="PhysicBody" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gbafs")
+
+[node name="Inventory-slot" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0.0929413, 0.131913)
+scale = Vector2(5.86338, 2.01649)
+texture = ExtResource("2_xmw28")
+
+[node name="Inventory-background" type="Sprite2D" parent="Inventory-slot"]
+texture_filter = 1
+position = Vector2(-5.13235, -0.0654173)
+scale = Vector2(0.17055, 0.495911)
+texture = ExtResource("3_8amxj")
+
+[node name="Inventory-background2" type="Sprite2D" parent="Inventory-slot"]
+texture_filter = 1
+position = Vector2(-1.72135, -0.0654173)
+scale = Vector2(0.17055, 0.495911)
+texture = ExtResource("3_8amxj")
+
+[node name="Inventory-background3" type="Sprite2D" parent="Inventory-slot"]
+texture_filter = 1
+position = Vector2(1.68965, -0.0654173)
+scale = Vector2(0.17055, 0.495911)
+texture = ExtResource("3_8amxj")
+
+[node name="Inventory-background4" type="Sprite2D" parent="Inventory-slot"]
+texture_filter = 1
+position = Vector2(4.9301, -0.0654173)
+scale = Vector2(0.17055, 0.495911)
+texture = ExtResource("3_8amxj")
+
+[node name="Area2D" type="Area2D" parent="." groups=["interface"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ej7id")
+
+[node name="work_table_UI" parent="." instance=ExtResource("4_pgo4d")]
+anchors_preset = 0
+offset_left = -41.0
+offset_top = -91.0
+offset_right = -41.0
+offset_bottom = -91.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

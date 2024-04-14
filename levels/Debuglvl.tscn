@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0ko77akhtiju"]
+[gd_scene load_steps=12 format=3 uid="uid://d0ko77akhtiju"]
 
 [ext_resource type="PackedScene" uid="uid://kt0atcisjbhw" path="res://player/player.tscn" id="1_rmjw5"]
 [ext_resource type="Texture2D" uid="uid://1ysudnixfgiy" path="res://arts/Decoration.png" id="2_k82h2"]
 [ext_resource type="Texture2D" uid="uid://ci3xyx4x5k2pm" path="res://arts/Grass_SpriteList.png" id="2_kqmeg"]
-[ext_resource type="PackedScene" uid="uid://dx5urtkityyfv" path="res://objects/tree.tscn" id="5_4fftb"]
+[ext_resource type="PackedScene" uid="uid://dx5urtkityyfv" path="res://objects/Tree/tree.tscn" id="5_4fftb"]
 [ext_resource type="PackedScene" uid="uid://div37b4l7d7ii" path="res://mobs/slime.tscn" id="6_4eddt"]
 [ext_resource type="Resource" uid="uid://bg2yl3kkyfswr" path="res://inventory/items/apple.tres" id="6_b2u53"]
+[ext_resource type="PackedScene" uid="uid://edklq5uq4w0x" path="res://objects/work_table/work_table.tscn" id="7_fsvwq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mg2vw"]
 texture = ExtResource("2_kqmeg")
@@ -99,10 +100,10 @@ position = Vector2(104, -823)
 apple = ExtResource("6_b2u53")
 
 [node name="player" parent="." instance=ExtResource("1_rmjw5")]
-position = Vector2(-38, -553)
+position = Vector2(54, -1000)
 
 [node name="slime5" parent="." instance=ExtResource("6_4eddt")]
-position = Vector2(241, -591)
+position = Vector2(102, -509)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(105, -578)
@@ -110,3 +111,6 @@ position = Vector2(105, -578)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_j61px")
+
+[node name="work_table" parent="." instance=ExtResource("7_fsvwq")]
+position = Vector2(-56, -1030)

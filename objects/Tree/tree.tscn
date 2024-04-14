@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dx5urtkityyfv"]
 
-[ext_resource type="Script" path="res://objects/tree.gd" id="1_grcn4"]
+[ext_resource type="Script" path="res://objects/Tree/tree.gd" id="1_grcn4"]
 [ext_resource type="Texture2D" uid="uid://1ysudnixfgiy" path="res://arts/Decoration.png" id="2_qoqhc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ormow"]
