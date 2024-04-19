@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci3xyx4x5k2pm"
-path="res://.godot/imported/Grass_SpriteList.png-62623b41b6a4a0ce811fae1dd5197942.ctex"
+uid="uid://bg301qxd0w1k8"
+path="res://.godot/imported/SpriteAtlas.png-7f43044e76d0b9a6af7584b9035e1d51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/Grass_SpriteList.png"
-dest_files=["res://.godot/imported/Grass_SpriteList.png-62623b41b6a4a0ce811fae1dd5197942.ctex"]
+source_file="res://arts/SpriteAtlas.png"
+dest_files=["res://.godot/imported/SpriteAtlas.png-7f43044e76d0b9a6af7584b9035e1d51.ctex"]
 
 [params]
 

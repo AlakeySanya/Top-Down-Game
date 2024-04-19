@@ -5,7 +5,7 @@ var player_in_picable_area = false
 @export var apple: InvItem
 
 func _ready():
-	Global.connect("player_use", Callable(self, "_take_apple"))
+	Global.connect("player_use_object", Callable(self, "_take_apple"))
 
 func _take_apple():
 	if player_in_picable_area:

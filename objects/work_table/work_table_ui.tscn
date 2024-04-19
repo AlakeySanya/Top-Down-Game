@@ -1,35 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnbbu11ewf3p5"]
+[gd_scene load_steps=10 format=3 uid="uid://bnbbu11ewf3p5"]
 
 [ext_resource type="Texture2D" uid="uid://dus8etornw84h" path="res://arts/inventory-background.png" id="1_2pmo6"]
 [ext_resource type="Script" path="res://objects/work_table/work_table_ui.gd" id="1_my6og"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2o101"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lknwf"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3aeye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r0jdq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8p0uq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ek8k"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8qr3e"]
+
 [node name="work_table_UI" type="Control"]
 layout_mode = 3
+anchor_right = 0.318
+anchor_bottom = 0.324
+offset_right = -366.336
+offset_bottom = -209.952
 script = ExtResource("1_my6og")
 
 [node name="background" type="NinePatchRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_right = 82.0
-offset_bottom = 62.0
+offset_right = 366.0
+offset_bottom = 210.0
 texture = ExtResource("1_2pmo6")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="background"]
+[node name="TabContainer" type="TabContainer" parent="background"]
 layout_mode = 0
-offset_right = 82.0
-offset_bottom = 62.0
+offset_top = 1.0
+offset_right = 366.0
+offset_bottom = 211.0
+theme_override_colors/font_selected_color = Color(5.22219e-06, 0.710683, 0, 1)
+theme_override_colors/font_unselected_color = Color(0.588235, 0, 0.0862745, 1)
+theme_override_constants/side_margin = 0
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_2o101")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_lknwf")
+theme_override_styles/tab_unselected = SubResource("StyleBoxLine_3aeye")
+theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_r0jdq")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_8p0uq")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6ek8k")
+theme_override_styles/tabbar_background = SubResource("StyleBoxLine_8qr3e")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="background/HBoxContainer"]
+[node name="create" type="HBoxContainer" parent="background/TabContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="background/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-text = "create"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="background/HBoxContainer"]
+[node name="upgrade" type="HBoxContainer" parent="background/TabContainer"]
+visible = false
 layout_mode = 2

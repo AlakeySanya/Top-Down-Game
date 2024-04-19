@@ -56,10 +56,12 @@ shape = SubResource("CapsuleShape2D_ej7id")
 
 [node name="work_table_UI" parent="." instance=ExtResource("4_pgo4d")]
 anchors_preset = 0
-offset_left = -41.0
-offset_top = -91.0
-offset_right = -41.0
-offset_bottom = -91.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -177.0
+offset_top = -130.0
+offset_right = -177.0
+offset_bottom = -130.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -202,10 +202,10 @@ position_smoothing_speed = 10.0
 
 [node name="Inventory_UI" parent="." instance=ExtResource("3_p3vaq")]
 visible = false
-offset_left = -94.0
-offset_top = -91.0
-offset_right = -94.0
-offset_bottom = -91.0
+offset_left = -81.0
+offset_top = -149.0
+offset_right = -81.0
+offset_bottom = -149.0
 
 [node name="Hit_Box" type="Area2D" parent="." groups=["player"]]
 

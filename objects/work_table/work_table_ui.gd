@@ -1,4 +1,9 @@
 extends Control
+	
+# TabContainer Каждый элемент который тоже как бы контейнер будет иметь свою
+# собственную вкладку
+# ScrollContainer в нем должен быть контейнер
+# LineEdit Чтобы игрок мог вводить текст
 
 var is_open = false
 

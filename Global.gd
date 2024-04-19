@@ -2,6 +2,7 @@ extends Node
 
 # for interactions
 signal player_use_interface()
+signal player_use_object()
 signal player_using_interface()
 signal player_collect_item(item)
 # for attack

@@ -3,7 +3,7 @@ extends CharacterBody2D
 ################################### Переменные ##############################################
 
 # Базовые Характеристики
-var speed = 100
+var speed = 160
 var hp = 100
 var damage: int
 var stamina = 100
@@ -28,7 +28,7 @@ var sword_cooldown = false
 var staff_cooldown = false
 var axe_cooldown = false
 
-var equipt_weapon = "stick" # "bow"
+var equipt_weapon = "stick" # "bow" "Hands"
 var weapon_collision
 var attack_in_process = false
 
@@ -69,8 +69,17 @@ func _ready():
 
 #####\\\ Главная функуция всех процессов ///#####
 func _physics_process(_delta):
-
+	
+	if Input.is_action_just_pressed("use_curr_object"):
+		if equipt_weapon == "Hands":
+			Global.emit_signal("player_use_object")
+		else:
+			state = ATTACK
+	
 	# equip items
+	if Input.is_action_just_pressed("0"):
+		equipt_weapon = "Hands"
+		change_damage(1)
 	if Input.is_action_just_pressed("1"):
 		equipt_weapon = "bow"
 		change_damage(20)
