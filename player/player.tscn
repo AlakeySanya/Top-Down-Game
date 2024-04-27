@@ -6,26 +6,129 @@
 [ext_resource type="PackedScene" uid="uid://cxw3rc0tiugpj" path="res://inventory/player_inventory/player_Inv_UI.tscn" id="3_p3vaq"]
 [ext_resource type="Texture2D" uid="uid://bnimguvv67alx" path="res://arts/attak-sheet.png" id="4_mhw7e"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xerhp"]
-radius = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irow1"]
+size = Vector2(24, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2knlr"]
+radius = 46.0435
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsvft"]
+size = Vector2(61.0001, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41h2a"]
 size = Vector2(29, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sjs04"]
-atlas = ExtResource("1_mjgj5")
-region = Rect2(19, 22, 34, 34)
+[sub_resource type="Animation" id="Animation_pim8w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ranges/sword_attack/sword_collision:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animations/stick_attack:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ivmro"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sjs04")
-}],
-"loop": true,
-"name": &"idle_side",
-"speed": 1.0
-}]
+[sub_resource type="Animation" id="Animation_q0dda"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animations/Player_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animations/Player_Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["idle_side"]
+}
+
+[sub_resource type="Animation" id="Animation_sifc5"]
+length = 0.3076
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animations/stick_attack:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animations/stick_attack:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["stick_attack"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ranges/sword_attack/sword_collision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animations/stick_attack:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.30709),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7noqn"]
+_data = {
+"RESET": SubResource("Animation_pim8w"),
+"idle_side": SubResource("Animation_q0dda"),
+"stick_attack": SubResource("Animation_sifc5")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hwq8"]
 atlas = ExtResource("4_mhw7e")
@@ -70,131 +173,28 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="Animation" id="Animation_pim8w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sword_attack/sword_collision:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("stick_attack:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjs04"]
+atlas = ExtResource("1_mjgj5")
+region = Rect2(19, 22, 34, 34)
 
-[sub_resource type="Animation" id="Animation_sifc5"]
-length = 0.3076
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("stick_attack:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("stick_attack:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["stick_attack"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sword_attack/sword_collision:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("stick_attack:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.30709),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_q0dda"]
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player_Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player_Sprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["idle_side"]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7noqn"]
-_data = {
-"RESET": SubResource("Animation_pim8w"),
-"idle_side": SubResource("Animation_q0dda"),
-"stick_attack": SubResource("Animation_sifc5")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsvft"]
-size = Vector2(61.0001, 61)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2knlr"]
-radius = 46.0435
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivmro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjs04")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 1.0
+}]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_tclqq")
 inventory = ExtResource("2_ix30r")
 
-[node name="PhysicBody" type="CollisionShape2D" parent="."]
+[node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
-shape = SubResource("CircleShape2D_xerhp")
+shape = SubResource("RectangleShape2D_irow1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.4, 2.4)
@@ -208,15 +208,57 @@ offset_top = -149.0
 offset_right = -81.0
 offset_bottom = -149.0
 
-[node name="Hit_Box" type="Area2D" parent="." groups=["player"]]
+[node name="Marker2D" type="Marker2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
+[node name="Cooldowns" type="Node" parent="."]
+
+[node name="bow_cooldown" type="Timer" parent="Cooldowns"]
+wait_time = 0.5
+
+[node name="sword_cooldown" type="Timer" parent="Cooldowns"]
+wait_time = 0.4
+
+[node name="axe_cooldown" type="Timer" parent="Cooldowns"]
+
+[node name="staff_cooldown" type="Timer" parent="Cooldowns"]
+
+[node name="Ranges" type="Node2D" parent="."]
+
+[node name="interface_use" type="Area2D" parent="Ranges" groups=["eye_ignore"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ranges/interface_use"]
+shape = SubResource("CircleShape2D_2knlr")
+
+[node name="sword_attack" type="Area2D" parent="Ranges" groups=["weapon"]]
+
+[node name="sword_collision" type="CollisionShape2D" parent="Ranges/sword_attack"]
+position = Vector2(30.4999, -30.5)
+shape = SubResource("RectangleShape2D_hsvft")
+
+[node name="Hit_Box" type="Area2D" parent="Ranges" groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ranges/Hit_Box"]
 position = Vector2(0.5, -3)
 shape = SubResource("RectangleShape2D_41h2a")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Animations" type="Node2D" parent="."]
 
-[node name="Player_Sprite" type="AnimatedSprite2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_7noqn")
+}
+
+[node name="stick_attack" type="AnimatedSprite2D" parent="Animations"]
+visible = false
+texture_filter = 1
+position = Vector2(45, -12)
+scale = Vector2(2.21875, 2)
+sprite_frames = SubResource("SpriteFrames_8sp70")
+animation = &"stick_attack"
+frame = 3
+
+[node name="Player_Sprite" type="AnimatedSprite2D" parent="Animations"]
 texture_filter = 1
 position = Vector2(0.796322, -1.55128)
 scale = Vector2(1.18845, 1.14404)
@@ -224,43 +266,7 @@ sprite_frames = SubResource("SpriteFrames_ivmro")
 animation = &"idle_side"
 autoplay = "idle_side"
 
-[node name="stick_attack" type="AnimatedSprite2D" parent="."]
-visible = false
-texture_filter = 1
-position = Vector2(45, -12)
-rotation = 6.28319
-scale = Vector2(2.21875, 2)
-sprite_frames = SubResource("SpriteFrames_8sp70")
-animation = &"stick_attack"
-frame = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7noqn")
-}
-
-[node name="sword_attack" type="Area2D" parent="." groups=["weapon"]]
-
-[node name="sword_collision" type="CollisionShape2D" parent="sword_attack"]
-position = Vector2(30.4999, -30.5)
-shape = SubResource("RectangleShape2D_hsvft")
-
-[node name="bow_cooldown" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="sword_cooldown" type="Timer" parent="."]
-wait_time = 0.4
-
-[node name="Timer3" type="Timer" parent="."]
-
-[node name="Timer4" type="Timer" parent="."]
-
-[node name="interface_use" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interface_use"]
-shape = SubResource("CircleShape2D_2knlr")
-
-[connection signal="timeout" from="bow_cooldown" to="." method="_on_bow_cooldown_timeout"]
-[connection signal="timeout" from="sword_cooldown" to="." method="_on_sword_cooldown_timeout"]
-[connection signal="area_entered" from="interface_use" to="." method="_on_interface_use_area_entered"]
-[connection signal="area_exited" from="interface_use" to="." method="_on_interface_use_area_exited"]
+[connection signal="timeout" from="Cooldowns/bow_cooldown" to="." method="_on_bow_cooldown_timeout"]
+[connection signal="timeout" from="Cooldowns/sword_cooldown" to="." method="_on_sword_cooldown_timeout"]
+[connection signal="area_entered" from="Ranges/interface_use" to="." method="_on_interface_use_area_entered"]
+[connection signal="area_exited" from="Ranges/interface_use" to="." method="_on_interface_use_area_exited"]

@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7p8ccb3782fq"]
+[gd_scene load_steps=10 format=3 uid="uid://qw84iypaq04h"]
 
-[ext_resource type="Texture2D" uid="uid://1ysudnixfgiy" path="res://arts/Decoration.png" id="1_qjty7"]
-[ext_resource type="Texture2D" uid="uid://bg301qxd0w1k8" path="res://arts/SpriteAtlas.png" id="2_peww1"]
-[ext_resource type="PackedScene" uid="uid://kt0atcisjbhw" path="res://player/player.tscn" id="3_iwwya"]
+[ext_resource type="Texture2D" uid="uid://1ysudnixfgiy" path="res://arts/Decoration.png" id="1_w43aj"]
+[ext_resource type="Texture2D" uid="uid://bg301qxd0w1k8" path="res://arts/SpriteAtlas.png" id="2_h6uh7"]
+[ext_resource type="PackedScene" uid="uid://kt0atcisjbhw" path="res://player/player.tscn" id="3_rati1"]
+[ext_resource type="PackedScene" uid="uid://div37b4l7d7ii" path="res://mobs/slime.tscn" id="4_5wblp"]
+[ext_resource type="PackedScene" uid="uid://c4w70xgt73t4i" path="res://objects/chest/chest.tscn" id="5_ftu0w"]
+[ext_resource type="PackedScene" uid="uid://6vsw2cut13wd" path="res://objects/Work_Bench/work_bench.tscn" id="5_kmgo2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dstg"]
-texture = ExtResource("1_qjty7")
+texture = ExtResource("1_w43aj")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -186,7 +189,7 @@ texture_region_size = Vector2i(24, 24)
 3:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jn2i"]
-texture = ExtResource("2_peww1")
+texture = ExtResource("2_h6uh7")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -484,5 +487,14 @@ layer_3/name = "objects"
 layer_3/y_sort_enabled = true
 layer_3/tile_data = PackedInt32Array()
 
-[node name="player" parent="." instance=ExtResource("3_iwwya")]
-position = Vector2(524, 245)
+[node name="player" parent="." instance=ExtResource("3_rati1")]
+position = Vector2(498, 160)
+
+[node name="Work_Bench" parent="." instance=ExtResource("5_kmgo2")]
+position = Vector2(421, 249)
+
+[node name="Chest" parent="." instance=ExtResource("5_ftu0w")]
+position = Vector2(585, 189)
+
+[node name="slime" parent="." instance=ExtResource("4_5wblp")]
+position = Vector2(768, 199)

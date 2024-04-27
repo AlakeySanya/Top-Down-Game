@@ -112,7 +112,6 @@ func _cant_see_the_player(parent_name):
 		if has_meet_player:
 			I_can_see_the_player = false
 			if not remember_where_the_player_was:
-				print("time start")
 				$remember_timer.start()
 				remember_where_the_player_was = true
 
@@ -126,7 +125,6 @@ func _on_chase_body_exited(body):
 	if body.name == "player":
 		chase = false
 func _on_remember_timer_timeout():
-	print("time out")
 	remember_where_the_player_was = false
 	$remember_timer.stop()
 	chase = false

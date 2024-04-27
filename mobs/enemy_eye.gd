@@ -11,7 +11,7 @@ func _physics_process(delta):
 	position += (direction * speed).rotated(rotation) * delta
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("eye") or area.is_in_group("slime") or area.is_in_group("weapon"):
+	if area.is_in_group("eye") or area.is_in_group("slime") or area.is_in_group("weapon") or area.is_in_group("eye_ignore"):
 		pass
 	elif area.is_in_group("player"):
 		Global.emit_signal("enemy_see_player", parent_name)

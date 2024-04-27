@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://6vsw2cut13wd"]
+
+[ext_resource type="Texture2D" uid="uid://1ysudnixfgiy" path="res://arts/Decoration.png" id="1_17xxg"]
+[ext_resource type="Script" path="res://objects/Work_Bench/work_bench.gd" id="1_obdxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs4tu"]
+size = Vector2(22, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b88t4"]
+texture = ExtResource("1_17xxg")
+texture_region_size = Vector2i(24, 24)
+7:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tfkr8"]
+tile_size = Vector2i(24, 24)
+sources/0 = SubResource("TileSetAtlasSource_b88t4")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iecmv"]
+radius = 21.0238
+
+[node name="Work_Bench" type="StaticBody2D"]
+script = ExtResource("1_obdxj")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(12, -10)
+shape = SubResource("RectangleShape2D_xs4tu")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_tfkr8")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 458752, 2)
+
+[node name="Use_Area" type="Area2D" parent="."]
+position = Vector2(12, -10)
+
+[node name="collision" type="CollisionShape2D" parent="Use_Area"]
+shape = SubResource("CircleShape2D_iecmv")
+
+[connection signal="area_entered" from="Use_Area" to="." method="_on_use_area_area_entered"]
+[connection signal="area_exited" from="Use_Area" to="." method="_on_use_area_area_exited"]

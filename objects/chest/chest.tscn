@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4w70xgt73t4i"]
+
+[ext_resource type="Script" path="res://objects/chest/chest.gd" id="1_t8lg8"]
+[ext_resource type="Texture2D" uid="uid://1ysudnixfgiy" path="res://arts/Decoration.png" id="2_5huma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qau7"]
+size = Vector2(24, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3rek"]
+radius = 19.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5a7g"]
+atlas = ExtResource("2_5huma")
+region = Rect2(96, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odtyc"]
+atlas = ExtResource("2_5huma")
+region = Rect2(72, 72, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlvwu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5a7g")
+}],
+"loop": true,
+"name": &"close",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odtyc")
+}],
+"loop": true,
+"name": &"open",
+"speed": 0.0
+}]
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_t8lg8")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_8qau7")
+
+[node name="Use_Area" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="Use_Area"]
+shape = SubResource("CircleShape2D_x3rek")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nlvwu")
+animation = &"close"
+
+[connection signal="area_entered" from="Use_Area" to="." method="_on_use_area_area_entered"]
+[connection signal="area_exited" from="Use_Area" to="." method="_on_use_area_area_exited"]

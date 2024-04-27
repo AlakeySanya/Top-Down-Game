@@ -33,8 +33,8 @@ var weapon_collision
 var attack_in_process = false
 
 # Для Анимаций
-@onready var animpsprite = $Player_Sprite
-@onready var animplayer = $AnimationPlayer 
+@onready var animpsprite = $Animations/Player_Sprite
+@onready var animplayer = $Animations/AnimationPlayer 
 var attack_anim: Node
 
 # Для инвентаря
@@ -61,8 +61,7 @@ enum {
 
 # Привязка всех сигналов 
 func _ready():
-	
-	$sword_attack/sword_collision.disabled = true
+	$Ranges/sword_attack/sword_collision.disabled = true
 	
 	Global.connect("player_collect_item", Callable(self, "_collect"))
 	Global.connect("player_take_damage", Callable(self, "_take_damage"))
@@ -189,7 +188,7 @@ func use_interface_state():
 func attack_state():
 	
 	if equipt_weapon == "stick":
-		attack_anim = $stick_attack
+		attack_anim = $Animations/stick_attack
 		curr_weapon_type = SWORD
 	elif equipt_weapon == "bow":
 		attack_anim = null
@@ -202,7 +201,7 @@ func attack_state():
 			weapon_collision = null
 			bow_attack()
 		SWORD:
-			weapon_collision = $sword_attack/sword_collision
+			weapon_collision = $Ranges/sword_attack/sword_collision
 			sword_attack()
 		STAFF:
 			weapon_collision = null
@@ -224,7 +223,7 @@ func bow_attack():
 		arrow_instance.rotation = $Marker2D.rotation
 		arrow_instance.global_position = $Marker2D.global_position
 		add_child(arrow_instance)
-		$bow_cooldown.start()
+		$Cooldowns/bow_cooldown.start()
 func sword_attack():
 	
 	if not sword_cooldown:
@@ -249,7 +248,7 @@ func sword_attack():
 			weapon_collision.position.y = 30.5
 		
 		animplayer.play("stick_attack")
-		$sword_cooldown.start()
+		$Cooldowns/sword_cooldown.start()
 func staff_attack():
 	pass
 func axe_attack():
@@ -269,10 +268,10 @@ func _take_damage(enemy_damage):
 # Cooldowns timeout
 func _on_bow_cooldown_timeout():
 	bow_cooldown = false
-	$bow_cooldown.stop()
+	$Cooldowns/bow_cooldown.stop()
 func _on_sword_cooldown_timeout():
 	sword_cooldown = false
-	$sword_cooldown.stop()
+	$Cooldowns/sword_cooldown.stop()
 
 # Interface area 
 func _on_interface_use_area_entered(area):

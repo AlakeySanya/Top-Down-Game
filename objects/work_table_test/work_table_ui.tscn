@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bnbbu11ewf3p5"]
 
 [ext_resource type="Texture2D" uid="uid://dus8etornw84h" path="res://arts/inventory-background.png" id="1_2pmo6"]
-[ext_resource type="Script" path="res://objects/work_table/work_table_ui.gd" id="1_my6og"]
+[ext_resource type="Script" path="res://objects/work_table_test/work_table_ui.gd" id="1_my6og"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2o101"]
 

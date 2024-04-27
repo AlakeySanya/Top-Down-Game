@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://edklq5uq4w0x"]
 
-[ext_resource type="Script" path="res://objects/work_table/work_table.gd" id="1_hxgym"]
+[ext_resource type="Script" path="res://objects/work_table_test/work_table.gd" id="1_hxgym"]
 [ext_resource type="Texture2D" uid="uid://b86m71chyngfa" path="res://arts/inventory-slot.png" id="2_xmw28"]
 [ext_resource type="Texture2D" uid="uid://dus8etornw84h" path="res://arts/inventory-background.png" id="3_8amxj"]
-[ext_resource type="PackedScene" uid="uid://bnbbu11ewf3p5" path="res://objects/work_table/work_table_ui.tscn" id="4_pgo4d"]
+[ext_resource type="PackedScene" uid="uid://bnbbu11ewf3p5" path="res://objects/work_table_test/work_table_ui.tscn" id="4_pgo4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbafs"]
 size = Vector2(94, 32)

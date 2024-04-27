@@ -31,12 +31,13 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 folder_colors={
 "res://addons/": "gray",
 "res://arts/": "pink",
-"res://inventory/": "orange",
+"res://inventory/": "teal",
 "res://levels/": "orange",
 "res://menu/": "orange",
 "res://mobs/": "red",
 "res://objects/": "orange",
 "res://objects/Tree/": "green",
+"res://objects/work_table_test/": "gray",
 "res://player/": "blue"
 }
 
