@@ -70,6 +70,7 @@ func _ready():
 #####\\\ Главная функуция всех процессов ///#####
 func _physics_process(_delta):
 	
+	# for using objects
 	if Input.is_action_just_pressed("use_curr_object"):
 		if equipt_weapon == "Hands":
 			Global.emit_signal("player_use_object")

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Bicubi"
+config/name="Top Down Game"
 run/main_scene="res://menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 

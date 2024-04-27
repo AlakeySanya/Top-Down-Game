@@ -27,23 +27,23 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_60fxe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hwq8"]
+atlas = ExtResource("4_mhw7e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4784"]
 atlas = ExtResource("4_mhw7e")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lo351"]
-atlas = ExtResource("4_mhw7e")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rnui8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2i7m"]
 atlas = ExtResource("4_mhw7e")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4abq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpbv2"]
 atlas = ExtResource("4_mhw7e")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6xmgm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw5um"]
 atlas = ExtResource("4_mhw7e")
 region = Rect2(160, 0, 32, 32)
 
@@ -51,19 +51,19 @@ region = Rect2(160, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_60fxe")
+"texture": SubResource("AtlasTexture_5hwq8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lo351")
+"texture": SubResource("AtlasTexture_b4784")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rnui8")
+"texture": SubResource("AtlasTexture_w2i7m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c4abq")
+"texture": SubResource("AtlasTexture_mpbv2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6xmgm")
+"texture": SubResource("AtlasTexture_nw5um")
 }],
 "loop": false,
 "name": &"stick_attack",
@@ -95,32 +95,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_q0dda"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player_Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player_Sprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["idle_side"]
 }
 
 [sub_resource type="Animation" id="Animation_sifc5"]
@@ -172,6 +146,33 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_q0dda"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player_Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["idle_side"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7noqn"]
@@ -226,12 +227,12 @@ autoplay = "idle_side"
 [node name="stick_attack" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(36.5, -35)
+position = Vector2(45, -12)
 rotation = 6.28319
 scale = Vector2(2.21875, 2)
 sprite_frames = SubResource("SpriteFrames_8sp70")
 animation = &"stick_attack"
-frame = 4
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
