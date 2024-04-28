@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://kt0atcisjbhw"]
+[gd_scene load_steps=23 format=3 uid="uid://kt0atcisjbhw"]
 
 [ext_resource type="Texture2D" uid="uid://pjfunqvt1lo1" path="res://arts/Bcubi.png" id="1_mjgj5"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_tclqq"]
 [ext_resource type="Resource" uid="uid://bhpwrge10pw2m" path="res://inventory/player_inventory/player_Inv.tres" id="2_ix30r"]
 [ext_resource type="PackedScene" uid="uid://cxw3rc0tiugpj" path="res://inventory/player_inventory/player_Inv_UI.tscn" id="3_p3vaq"]
 [ext_resource type="Texture2D" uid="uid://bnimguvv67alx" path="res://arts/attak-sheet.png" id="4_mhw7e"]
+[ext_resource type="PackedScene" uid="uid://cttjexjj6ivdh" path="res://inventory/Fast_useble/fast_useble_inv.tscn" id="6_umxt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irow1"]
 size = Vector2(24, 14)
@@ -265,6 +266,9 @@ scale = Vector2(1.18845, 1.14404)
 sprite_frames = SubResource("SpriteFrames_ivmro")
 animation = &"idle_side"
 autoplay = "idle_side"
+
+[node name="Fast_useble_inv" parent="." instance=ExtResource("6_umxt5")]
+visible = false
 
 [connection signal="timeout" from="Cooldowns/bow_cooldown" to="." method="_on_bow_cooldown_timeout"]
 [connection signal="timeout" from="Cooldowns/sword_cooldown" to="." method="_on_sword_cooldown_timeout"]

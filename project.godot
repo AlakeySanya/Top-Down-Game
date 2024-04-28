@@ -41,6 +41,10 @@ folder_colors={
 "res://player/": "blue"
 }
 
+[gui]
+
+theme/custom="res://new_theme.tres"
+
 [input]
 
 up={
