@@ -113,7 +113,6 @@ func _physics_process(_delta):
 	# Для отслеживания позиции мыши
 	mouse_pos = get_global_mouse_position()
 	var mouse_direction = mouse_pos - self.position
-	
 	if mouse_direction.x <= 0:
 		curr_x_mouse_direction = "left"
 	else:

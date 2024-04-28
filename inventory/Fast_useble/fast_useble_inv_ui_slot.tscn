@@ -6,7 +6,6 @@
 [node name="Panel" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(110, 110)
-anchors_preset = -1
 offset_right = 110.0
 offset_bottom = 110.0
 script = ExtResource("1_kj33t")
@@ -19,6 +18,7 @@ texture = ExtResource("2_ho1yv")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
 scale = Vector2(6.88368, 6.87469)

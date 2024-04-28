@@ -54,8 +54,17 @@ shape = SubResource("RectangleShape2D_f81wt")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(11, -33)
+position = Vector2(12, -33)
 shape = SubResource("CircleShape2D_avgl2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(12, -5)
+scale = Vector2(0.76, 1.14)
+texture = ExtResource("2_qoqhc")
+region_enabled = true
+region_rect = Rect2(0, 144, 72, 24)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
