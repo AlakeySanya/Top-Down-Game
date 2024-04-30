@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bg2yl3kkyfswr"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bix8jivsv0r4"]
 
-[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_ctsud"]
-[ext_resource type="Texture2D" uid="uid://d0xx7w08p4twx" path="res://arts/icons/apple-icon.png" id="2_x1hgn"]
+[ext_resource type="Script" path="res://inventory/inventiry_item.gd" id="1_sbdah"]
+[ext_resource type="Texture2D" uid="uid://d0xx7w08p4twx" path="res://arts/icons/apple-icon.png" id="2_43ub5"]
 
 [resource]
-script = ExtResource("1_ctsud")
+script = ExtResource("1_sbdah")
 name = "apple"
-texture = ExtResource("2_x1hgn")
+texture = ExtResource("2_43ub5")

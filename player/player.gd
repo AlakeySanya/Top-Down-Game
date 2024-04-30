@@ -39,7 +39,7 @@ var attack_anim: Node
 
 # Для инвентаря
 @onready var inventory_ui = $Inventory_UI
-@export var inventory: Inventory
+@export var inventory: Inv
 var using_inventory_interface = false
 var using_interface = false
 var in_interface_obj_area = false

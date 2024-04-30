@@ -11,6 +11,7 @@ offset_bottom = 110.0
 script = ExtResource("1_kj33t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.45098)
 texture_filter = 1
 position = Vector2(55, 55)
 scale = Vector2(3.4375, 3.43701)
@@ -31,11 +32,11 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CenterContainer/Panel"]
 texture_filter = 1
 layout_mode = 0
-offset_left = -0.155363
-offset_top = 0.000356794
-offset_right = 57.8446
-offset_bottom = 69.0004
-scale = Vector2(0.104143, 0.0976177)
+offset_left = 0.48
+offset_top = 1.891
+offset_right = 76.48
+offset_bottom = 70.891
+scale = Vector2(0.0747418, 0.07733)
 theme_override_font_sizes/font_size = 50
 text = "99
 "

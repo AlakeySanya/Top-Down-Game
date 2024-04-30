@@ -43,7 +43,7 @@ folder_colors={
 
 [gui]
 
-theme/custom="res://new_theme.tres"
+theme/custom="res://arts/themes/new_theme.tres"
 
 [input]
 

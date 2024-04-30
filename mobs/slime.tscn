@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://div37b4l7d7ii"]
 
 [ext_resource type="Script" path="res://mobs/slime.gd" id="1_xpv4n"]
-[ext_resource type="Resource" uid="uid://bg2yl3kkyfswr" path="res://inventory/items/apple.tres" id="2_aqdvn"]
+[ext_resource type="Resource" uid="uid://bix8jivsv0r4" path="res://inventory/items/apple.tres" id="2_aqdvn"]
 [ext_resource type="Texture2D" uid="uid://hlttofk6fvmm" path="res://arts/slime.png" id="2_ikgu7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1p4ea"]
@@ -165,7 +165,7 @@ radius = 14.1421
 
 [node name="slime" type="CharacterBody2D" groups=["slime"]]
 script = ExtResource("1_xpv4n")
-itnvRes = ExtResource("2_aqdvn")
+invRes = ExtResource("2_aqdvn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

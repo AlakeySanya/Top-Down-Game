@@ -4,7 +4,7 @@ extends StaticBody2D
 #@onready var work_table_ui = $chest_UI
 var player_in_my_area = false
 var is_open = false
-@export var inv: Inventory
+@export var inv: Inv
 
 func _ready():
 	Global.connect("player_use_object", Callable(self, "_use_work_table"))

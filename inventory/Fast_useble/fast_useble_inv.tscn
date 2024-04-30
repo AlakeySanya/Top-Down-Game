@@ -12,41 +12,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="Control"]
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -454.0
-offset_top = -128.0
-offset_right = 454.0
-offset_bottom = -18.0
+offset_left = -169.0
+offset_top = -133.0
+offset_right = 169.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-columns = 8
 
-[node name="Panel" parent="Control/GridContainer" instance=ExtResource("1_vjywg")]
+[node name="GridContainer" type="GridContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 9
+
+[node name="Panel" parent="Control/CenterContainer/GridContainer" instance=ExtResource("1_vjywg")]
 layout_mode = 2
 
-[node name="Panel2" parent="Control/GridContainer" instance=ExtResource("1_vjywg")]
+[node name="Panel2" parent="Control/CenterContainer/GridContainer" instance=ExtResource("1_vjywg")]
 layout_mode = 2
 
-[node name="Panel3" parent="Control/GridContainer" instance=ExtResource("1_vjywg")]
-layout_mode = 2
-
-[node name="Panel4" parent="Control/GridContainer" instance=ExtResource("1_vjywg")]
-layout_mode = 2
-
-[node name="Panel5" parent="Control/GridContainer" instance=ExtResource("1_vjywg")]
-layout_mode = 2
-
-[node name="Panel6" parent="Control/GridContainer" instance=ExtResource("1_vjywg")]
-layout_mode = 2
-
-[node name="Panel7" parent="Control/GridContainer" instance=ExtResource("1_vjywg")]
-layout_mode = 2
-
-[node name="Panel8" parent="Control/GridContainer" instance=ExtResource("1_vjywg")]
+[node name="Panel3" parent="Control/CenterContainer/GridContainer" instance=ExtResource("1_vjywg")]
 layout_mode = 2

@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://k1v21pto8q35"]
+
+[ext_resource type="Texture2D" uid="uid://dus8etornw84h" path="res://arts/inventory-background.png" id="1_c18kn"]
+[ext_resource type="Script" path="res://inventory/player_inventory/inventory_UI.gd" id="1_jp6gr"]
+[ext_resource type="PackedScene" uid="uid://bpsedt2f1dyv8" path="res://inventory/player_inventory/slot_inv_UI.tscn" id="2_myqd3"]
+
+[node name="inventory" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = 433.0
+offset_top = 235.0
+offset_right = 692.0
+offset_bottom = 407.0
+script = ExtResource("1_jp6gr")
+
+[node name="bg_textrure" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_right = 259.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c18kn")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Slots" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 248.0
+offset_bottom = 161.0
+
+[node name="GridContainer" type="GridContainer" parent="Slots"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Slot_inv1" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv2" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv3" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv4" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv5" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv6" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv7" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv8" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv9" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv10" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv11" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv12" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv13" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv14" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv15" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2
+
+[node name="Slot_inv16" parent="Slots/GridContainer" instance=ExtResource("2_myqd3")]
+layout_mode = 2

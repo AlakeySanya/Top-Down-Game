@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpsedt2f1dyv8"]
+
+[ext_resource type="Texture2D" uid="uid://b86m71chyngfa" path="res://arts/inventory-slot.png" id="1_epbkj"]
+[ext_resource type="Script" path="res://inventory/player_inventory/slot_inv_UI.gd" id="1_n3umg"]
+
+[node name="Slot_inv_UI" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = -1
+anchor_right = 0.028
+anchor_bottom = 0.049
+offset_right = -0.256001
+offset_bottom = 0.247999
+script = ExtResource("1_n3umg")
+
+[node name="slot_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 16)
+texture = ExtResource("1_epbkj")
+
+[node name="item_texture" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 16)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 42.0
+offset_bottom = 36.0
+scale = Vector2(0.380924, 0.407985)
+text = "99"

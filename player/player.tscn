@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://pjfunqvt1lo1" path="res://arts/Bcubi.png" id="1_mjgj5"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_tclqq"]
-[ext_resource type="Resource" uid="uid://bhpwrge10pw2m" path="res://inventory/player_inventory/player_Inv.tres" id="2_ix30r"]
-[ext_resource type="PackedScene" uid="uid://cxw3rc0tiugpj" path="res://inventory/player_inventory/player_Inv_UI.tscn" id="3_p3vaq"]
+[ext_resource type="Resource" uid="uid://cyvcs6a3byput" path="res://inventory/player_inventory/player_Inv.tres" id="2_ix30r"]
+[ext_resource type="PackedScene" uid="uid://k1v21pto8q35" path="res://inventory/player_inventory/inventory_UI.tscn" id="2_m1b0f"]
 [ext_resource type="Texture2D" uid="uid://bnimguvv67alx" path="res://arts/attak-sheet.png" id="4_mhw7e"]
 [ext_resource type="PackedScene" uid="uid://cttjexjj6ivdh" path="res://inventory/Fast_useble/fast_useble_inv.tscn" id="6_umxt5"]
 
@@ -198,18 +198,17 @@ position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_irow1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.4, 2.4)
+zoom = Vector2(2.8, 2.8)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="Inventory_UI" parent="." instance=ExtResource("3_p3vaq")]
-visible = false
-offset_left = -81.0
-offset_top = -149.0
-offset_right = -81.0
-offset_bottom = -149.0
-
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Inventory_UI" parent="." instance=ExtResource("2_m1b0f")]
+offset_left = -137.0
+offset_top = -81.0
+offset_right = -137.0
+offset_bottom = -81.0
 
 [node name="Cooldowns" type="Node" parent="."]
 
@@ -267,8 +266,9 @@ sprite_frames = SubResource("SpriteFrames_ivmro")
 animation = &"idle_side"
 autoplay = "idle_side"
 
-[node name="Fast_useble_inv" parent="." instance=ExtResource("6_umxt5")]
-visible = false
+[node name="UI_elements" type="CanvasLayer" parent="."]
+
+[node name="Fast_useble_inv" parent="UI_elements" instance=ExtResource("6_umxt5")]
 
 [connection signal="timeout" from="Cooldowns/bow_cooldown" to="." method="_on_bow_cooldown_timeout"]
 [connection signal="timeout" from="Cooldowns/sword_cooldown" to="." method="_on_sword_cooldown_timeout"]

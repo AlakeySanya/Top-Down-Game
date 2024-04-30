@@ -21,24 +21,22 @@ var player_damage = 10
 
 # Для дропа лута
 @onready var slime = $Drop
-@export var itnvRes: InvItem
+@export var invRes: InvItem
 
 # Для Анимаций
 @onready var animplayer = $AnimationPlayer
 var curr_direction = "right"
 
 # Привязка всех сигналов 
+
 func _ready():
-	slime.texture = itnvRes.texture
+	slime.texture = invRes.texture
 	Global.connect("player_change_damage", Callable(self, "_player_change_damage"))
 	Global.connect("enemy_see_player", Callable(self, "_can_see_the_player"))
 	Global.connect("enemy_cant_see_player", Callable(self, "_cant_see_the_player"))
 
 #####\\\ Главная функуция всех процессов ///#####
 func _physics_process(_delta):
-	
-	#print("chase = ", chase)
-	#print("see = ", I_can_see_the_player)
 	
 	if alive:
 		var direction = (player.position - self.position).normalized()
@@ -93,7 +91,7 @@ func death():
 func slime_drop():
 	slime.visible = true
 func slime_collect():
-	Global.emit_signal("player_collect_item", itnvRes)
+	Global.emit_signal("player_collect_item", invRes)
 	slime.visible = false
 	queue_free()
 func take_damage(enemy_damage):
